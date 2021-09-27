@@ -8,21 +8,14 @@ import model.Video;
 import repository.BankAccountRepository;
 import repository.ProductRepository;
 import repository.VideoRepository;
-import repositoryImpl.BankAccountRepositoryImpl;
-import repositoryImpl.ProductRepositoryImpl;
-import repositoryImpl.VideoRepositoryImpl;
 
 public class TheService {
 	
-	ProductRepository productRepository = new ProductRepositoryImpl();
+	private final ProductRepository productRepository;
 	
-	BankAccountRepository bankAccountRepository = new BankAccountRepositoryImpl();
+	private final BankAccountRepository bankAccountRepository;
 
-	VideoRepository videoRepository = new VideoRepositoryImpl();
-	
-	public TheService() {
-		
-	}
+	private final VideoRepository videoRepository;
 
 	public TheService(ProductRepository productRepository, BankAccountRepository bankAccountRepository, VideoRepository videoRepository) {
 		this.productRepository = productRepository;

@@ -1,21 +1,24 @@
-import java.util.List;
 
-import model.BankAccount;
-import model.Product;
-import model.Video;
+import repository.BankAccountRepository;
+import repository.ProductRepository;
+import repository.VideoRepository;
+import repositoryImpl.BankAccountRepositoryImpl;
+import repositoryImpl.ProductRepositoryImpl;
+import repositoryImpl.VideoRepositoryImpl;
 import service.TheService;
 
 public class Crs {
 
 	public static void main(String[] args) {
 
-		TheService service = new TheService();
+		ProductRepository productRepository = new ProductRepositoryImpl();
+		
+		BankAccountRepository bankAccountRepository = new BankAccountRepositoryImpl();
 
-		List<Product> productList = service.getAllProducts();
+		VideoRepository videoRepository = new VideoRepositoryImpl();
 		
-		List<BankAccount> bankAccounts = service.getAllBankAccounts();
-		
-		List<Video> videos = service.getAllVideos();
+		TheService service = new TheService(productRepository, bankAccountRepository, videoRepository);
+
 	}
 
 }
